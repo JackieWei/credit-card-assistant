@@ -7,7 +7,7 @@ User stories:
 4. Humanity friendly input, from all possible channels, Wechat/UnionPay/Alipay/Receipt.
 5. Add to Wechat/Alipay
 
-Design:
+#Design:
 App View
     1. Home
         a. Notifications, click open to relevant App.
@@ -21,3 +21,6 @@ App View
         b. Card information maintenance.
             1. Add card, better to use screenshot/photograph, only use last four number as identifier
             2. Add receipt
+    2. 
+#Refer
+https://github.com/sufangyu/react-intl-demo
