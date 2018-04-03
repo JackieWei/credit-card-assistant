@@ -12,29 +12,21 @@ class Index extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            lang: 'en-US',
+            lang: 'zh'
         };
     }
-    onChange(index) {
-        const lang = index === 0 ? 'en-US' : 'zh-CN';
-        this.setState({
-            lang,
-        });
-    }
     render() {
-        return (<LocaleProvider>
-            <IntlProvider>
-                <Router history={browserHistory}>
-                    <Route path="/" component={App}>
-                        <IndexRoute component={Home} />
-                        <Route path="/card" component={Card}>
-                            <Route path="/card/:card" component={CardDetail} />
-                        </Route>
-                        <Route path="/me" component={Me} />
+        return (<IntlProvider locale={this.state.lang}>
+            <Router history={browserHistory}>
+                <Route path="/" component={App}>
+                    <IndexRoute component={Home} />
+                    <Route path="/card" component={Card}>
+                        <Route path="/card/:card" component={CardDetail} />
                     </Route>
-                </Router>
-            </IntlProvider>
-        </LocaleProvider>)
+                    <Route path="/me" component={Me} />
+                </Route>
+            </Router>
+        </IntlProvider>)
     }
 }
 

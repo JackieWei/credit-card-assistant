@@ -23,4 +23,4 @@ App View
             2. Add receipt
     2. 
 #Refer
-https://github.com/sufangyu/react-intl-demo
+https://github.com/sufangyu/react-intl-demo 
