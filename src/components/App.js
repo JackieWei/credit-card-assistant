@@ -3,6 +3,9 @@ import React, { PropTypes, PureComponent } from 'react';
 import AddTodo from './AddTodo';
 import Footer from './Footer';
 import TodoList from './TodoList';
+import SearchBar from './home/SearchBar';
+import MainArea from './MainArea';
+import Tabs from './Tabs';
 
 export default class App extends PureComponent {
   static propTypes = {
@@ -42,6 +45,7 @@ export default class App extends PureComponent {
 
   render() {
     return (
+      /*
       <div style={styles.todoListView}>
         <AddTodo onAddClick={this.onAddClick} />
         <TodoList
@@ -53,6 +57,11 @@ export default class App extends PureComponent {
           onFilterChange={this.onFilterChange}
         />
         <div style={{ ...styles.overlay, display: (this.props.isFetching ? 'block' : 'none') }} />
+      </div>*/
+      <div style={styles.todoListView}>
+        <SearchBar onInputDone={this.onAddClick} />
+        <MainArea />
+        <Tabs onFilterChange={this.onFilterChange} filter={this.props.visibilityFilter} />
       </div>
     );
   }
