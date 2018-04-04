@@ -1,15 +1,22 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/VisibilityFilters';
 
+
+let stylesForContainer = {
+  display: 'flex',
+  position: 'absolute',
+  bottom: 0
+}
+
+let stylesForElement = {
+  
+}
+
 export default class Tabs extends PureComponent {
   static propTypes = {
-    onFilterChange: PropTypes.func.isRequired,
-    filter: PropTypes.oneOf([
-      SHOW_ALL,
-      SHOW_COMPLETED,
-      SHOW_ACTIVE,
-    ]),
+    onFilterChange: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -38,16 +45,11 @@ export default class Tabs extends PureComponent {
 
   render() {
     return (
-      <p>
-        Show:
-        {' '}
-        {this.renderFilter(SHOW_ALL, 'All')}
-        {', '}
-        {this.renderFilter(SHOW_COMPLETED, 'Completed')}
-        {', '}
-        {this.renderFilter(SHOW_ACTIVE, 'Active')}
-        .
-      </p>
+      <div style={stylesForContainer}>
+        <div style={stylesForElement}>Home</div>
+        <div style={stylesForElement}>Tab</div>
+        <div style={stylesForElement}>Me</div>
+      </div>
     );
   }
 }
