@@ -13,11 +13,60 @@ app.use(compression());
 app.use(express.static(path.join(__dirname, './src/public')));
 
 // send all requests to index.html so browserHistory works
-/*app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, './src/public', 'index.html'));
-})*/
 
-app.use("/cards", cards);
+app.use("/cards", (() => {
+  let express = require('express');
+  let cardsOption = {
+    caseSensitive: true,
+    mergeParams: true,
+    strict: false
+  };
+  let cards = express.Router(cardsOption);
+
+  let dataCards = [{
+    id: 100001,
+    type: "Credit Card",
+    startDate: "2017-01-01",
+    expiredDate: "2022-01-01",
+    billDate: 17,
+    interestFreeDays: 50,
+    dueDate: 4
+  }, {
+    id: 100002,
+    type: "Credit Card",
+    startDate: "2017-01-01",
+    expiredDate: "2022-01-01",
+    billDate: 17,
+    interestFreeDays: 50,
+    dueDate: 4
+  }, {
+    id: 100003,
+    type: "Credit Card",
+    startDate: "2017-01-01",
+    expiredDate: "2022-01-01",
+    billDate: 17,
+    interestFreeDays: 50,
+    dueDate: 4
+  }, {
+    id: 100004,
+    type: "Credit Card",
+    startDate: "2017-01-01",
+    expiredDate: "2022-01-01",
+    billDate: 17,
+    interestFreeDays: 50,
+    dueDate: 4
+  }];
+
+  cards.use((req, res, next) => {
+    next();
+  });
+
+  cards.get("/", (req, res, next) => {
+    res.send(dataCards);
+  });
+
+  return cards;
+})());
 
 let port = 9999;
 http.createServer(app).listen(port, () => {

@@ -48,4 +48,4 @@ cards.get("/", (req, res, next) => {
     res.send(dataCards);
 });
 
-module.exports(cards);
+console.log(cards + " is aaaaa");

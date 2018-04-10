@@ -9,7 +9,7 @@
     "start:prod": "webpack && node server.js",
     "build": "webpack",
     "startTodo": "babel-node index.js",
-    "dev": "webpack && babel-node index.js",
+    "dev": "webpack && babel-node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src/**/*.js"
   },
