@@ -58,7 +58,7 @@ export default class App extends PureComponent {
         />
         <div style={{ ...styles.overlay, display: (this.props.isFetching ? 'block' : 'none') }} />
       </div>*/
-      <div style={styles.todoListView}>
+      <div style={styles.containerView}>
         <SearchBar onInputDone={this.onAddClick} />
         <MainArea />
         <Tabs onFilterChange={this.onFilterChange} filter={this.props.visibilityFilter} />
@@ -68,9 +68,9 @@ export default class App extends PureComponent {
 }
 
 const styles = {
-  todoListView: {
+  containerView: {
     position: 'relative',
-    width: 300,
+    width: 400,
     height: 400,
     margin: 'auto',
     padding: 10,
