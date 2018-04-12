@@ -13,14 +13,7 @@ export default class MainArea extends PureComponent {
   render() {
     return (
       <div>
-        <input
-          type={'search'}
-          ref={(me) => {
-            if (me) {
-              this.input = me;
-            }
-          }}
-        />
+        {this.props.children}
       </div>
     );
   }
