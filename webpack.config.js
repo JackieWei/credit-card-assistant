@@ -3,7 +3,7 @@ const webpack = require("webpack");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 const mainPath = path.resolve("./src");
-const buildPath = path.resolve("./public/assets");
+const buildPath = path.resolve("./public/assets/");
 
 module.exports = {
   context: mainPath,
@@ -11,6 +11,7 @@ module.exports = {
     vendor: [
       "react",
       "react-dom",
+      "react-intl",
       "redux",
       "react-redux",
       "babel-polyfill"
@@ -19,7 +20,7 @@ module.exports = {
   },
   output: {
     path: buildPath,
-    publicPath: "/assets/",
+    publicPath: "/",
     filename: "[name].js"
   },
   resolve: {
@@ -38,7 +39,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin([buildPath]),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    // new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: "vendor",
       filename: "vendor.js",

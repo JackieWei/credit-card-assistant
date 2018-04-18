@@ -9,11 +9,7 @@ let app = express();
 
 app.use(compression());
 
-// serve our static stuff like index.css
-app.use(express.static(path.join(__dirname, './src/public')));
-
-// send all requests to index.html so browserHistory works
-
+/*
 app.use("/cards", (() => {
   let express = require('express');
   let cardsOption = {
@@ -67,6 +63,9 @@ app.use("/cards", (() => {
 
   return cards;
 })());
+*/
+// serve our static stuff like index.css
+app.use(express.static(path.join(__dirname, './public')));
 
 let port = 9999;
 http.createServer(app).listen(port, () => {
